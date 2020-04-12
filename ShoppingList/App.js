@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
-import { View, Text, FlatList, StyleSheet } from 'react-native'
+import { View, Text, FlatList, StyleSheet,Alert } from 'react-native'
 import Header from './components/Header'
 import ListItem from './components/ListItem'
+import AddItem from './components/AddItem'
 import {uuid} from 'uuidv4'
 
 const App = () => {
@@ -13,17 +14,32 @@ const App = () => {
 
    ])
   const deleteItem = (id) => {
-    setItems(prevItem => {
-      return prevItem.filter(item => item.id != id)
-    });
+    setItems(prevItems => {
+      return prevItems.filter(item => item.id != id)
+    })
+  }
+
+  const addItem = (text) =>{
+    if(!text){
+      Alert.alert('Error', 'Please enter an item', {text:'OK'})
+
+    }
+    else{
+      setItems(prevItems => {
+        return[...prevItems, {id:uuid(), text}]
+      })
+    }
+    
   }
   return (
     <View style ={styles.container}>
       <Header title="My Shopping List"/>
+      
       <FlatList 
       data= {items} 
       renderItem = {({item}) => <ListItem item={item} deleteItem={deleteItem} />}
       />
+      <AddItem addItem={addItem} />
     </View>
 
   )
