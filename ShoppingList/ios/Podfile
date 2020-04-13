@@ -79,6 +79,8 @@ target 'ShoppingList' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RealmJS', :path => '../node_modules/realm'
+
   target 'ShoppingListTests' do
     inherit! :complete
     # Pods for testing
