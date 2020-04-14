@@ -11,3 +11,11 @@ running in the background so that data is saved between shopping sessions.
 
 # Testing
 In progess..
+
+# running
+```java
+$ npm install
+```
+```java
+$ npm run android
+```
