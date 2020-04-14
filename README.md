@@ -12,7 +12,7 @@ running in the background so that data is saved between shopping sessions.
 # Testing
 In progess..
 
-# running
+# Running
 ```java
 $ npm install
 ```
