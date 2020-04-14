@@ -37,11 +37,11 @@ export default class App extends Component {
   reloadData = () => {
     queryFood()
     .then((foodLists) => {
-        this.setState({ foodLists });
+        this.setState({ foodLists })
     }).catch((error) => {
-        this.setState({ foodLists: [] });
+        this.setState({ foodLists: [] })
     })
-    console.log(`reloadData`);
+  
 }
   componentDidMount(){
     this.reloadData()
@@ -54,13 +54,13 @@ export default class App extends Component {
         <FlatList 
         data= {this.state.foodLists} 
         renderItem = {({item}) => <ListItem item={item} deleteItem={this.deleteItem}  />} 
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => `list-item-${item.id}`}
         />
         <AddItem addItem={this.addItem} />
       </View>)
   }
 }
-
+'list-item-${index}'
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
